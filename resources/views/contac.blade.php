@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<h1>Contac</h1>
-</body>
-</html>
+@extends('layout.app')
+@section('title', 'Contact')
+@section('oke')
+	<div class="container">
+		<h3>conntac me person?</h3>
+	</div>
+@endsection
