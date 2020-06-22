@@ -1,6 +1,7 @@
 <?php
-
+// class yang di berikan oleh laravel
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +37,23 @@ kita bisa mengganti / menjadi . dalam mengakses letak file
 Route::get('oke.coba', 'coba.coba');
 */
 
-
-
-
+/*
+Route::get('/', function( Request $request){
+	return $request->path();
+});
+*/
 
 Route::get('/', function(){
 	return view('home');
 });
+
+/*
+Route::get('contac', function( Request $request){
+	//tanpa memnaggil class Request
+	// bisa juga menggunakan request function 
+	// request()->path() == 'contac' ? true : false;
+	return $request->is('contac')  ? true : false ;
+});
+*/
 
 Route::view('contac', 'contac');
