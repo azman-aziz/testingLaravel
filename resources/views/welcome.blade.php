@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <!-- echo blade bisa di ganti dengan {{}} -->
+                    My name {!!$nama!!} 
                 </div>
 
                 <div class="links">

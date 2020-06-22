@@ -13,12 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+/*
 
+Route::get('/', function () {
+	$name = "azman aziz";
+	//param1 = nama yang akan di kirimkan ke halaman 
+	//param2 = $name di ambil dari variabel di atas
+    return view('welcome', [ 'nama' => $name]);
+});
+*/
+
+/*
 Route::get('about', function(){
 	return "about me?";
 });
 
 Route::view('/', 'welcome');
+
+
+
+kita bisa mengganti / menjadi . dalam mengakses letak file
+Route::get('oke.coba', 'coba.coba');
+*/
+
+
+
+
+
+Route::get('/', function(){
+	return view('home');
+});
+
+Route::view('contac', 'contac');
