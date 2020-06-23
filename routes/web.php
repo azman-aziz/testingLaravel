@@ -43,9 +43,17 @@ Route::get('/', function( Request $request){
 });
 */
 
-Route::get('/', function(){
-	return view('home');
-});
+
+// jika ingin memparsing data menggunakan route maka harus memakai callback function
+// atau menggunakan controller 
+
+
+Route::get('/', 'HomeController');
+
+// Route::get('/', function(){
+// 	$name = request('name');
+// 	return view('home', ['name' => $name]);
+// });
 
 /*
 Route::get('contac', function( Request $request){
