@@ -65,3 +65,13 @@ Route::get('contac', function( Request $request){
 */
 
 Route::view('contac', 'contac');
+
+
+/*
+
+ 	bermain dengan slug(url ramah)
+ 	slug akan membaca string yang ada pada slug
+
+*/
+
+Route::get('posts/{slug}', 'PostController@show');
