@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function show($slug){
+    public function show(Post $post){
 
     		// first() = di gunakan unutuk mengembalikan value dari db
     		// firstofFail() = kondisi jika syarat tidak ada maka langsung di arah ke halaman 404
-    	$post = Post::where('slug', $slug)->firstorFail();
+    	
+    	// $post = Post::where('slug', $slug)->firstorFail();
     	// DD() =  var_dump()
 
     	/*

@@ -8,4 +8,5 @@ class Post extends Model
 {
 	//validasi tabel untuk model ini
     // protected $table = 'post' ;
+   
 }
