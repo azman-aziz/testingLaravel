@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSendsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSendsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sends', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 191);
-            $table->string('slug', 191);
-            $table->string('body');
-            $table->timestamp('edited_at')->nullable();
+            $table->string('title',191);
+            $table->string('slug',191);
+            $table->text('body');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSendsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sends');
+        Schema::dropIfExists('posts');
     }
 }
