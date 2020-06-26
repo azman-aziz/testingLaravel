@@ -7,7 +7,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link{{ request()->is('/') ? ' active' : ''}}" href="/">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link{{request()->is('contac') ? ' active' : ''}}" href="contac">contac</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link{{request()->is('posts') ? ' active' : ''}}" href="posts">Posts</a>
       
     </div>
   </div>

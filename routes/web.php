@@ -75,5 +75,6 @@ Route::view('contac', 'contac');
 */
 
  	//('posts/{post}') = akan mengembalikan nilai id
+ Route::get('posts', 'PostController@index');
 
 Route::get('posts/{post:slug}', 'PostController@show');
