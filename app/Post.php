@@ -9,4 +9,8 @@ class Post extends Model
     public function scopeLatesFirst(){
     	return $this->latest()->first();
     }
+
+    //fillelable di gunakan untuk menentukan input yang boleh masuk ke database
+    // $guarded = semua input di izinkan masuk tanpa terkecuali
+    protected $fillable = ['title', 'slug', 'body'];
 }

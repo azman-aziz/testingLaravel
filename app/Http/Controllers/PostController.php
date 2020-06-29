@@ -25,13 +25,10 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
-        $post = new Post;
-        $post->title = $request->title;// first post
-        $post->slug = \Str::slug($request->title); // first-post
-        $post->body = $request->body;
-        $post->save();
-
-        return redirect()->to('posts');
-
+        
+       $post = $request->all();
+       $post['slug'] = \Str::slug($request->title);
+       Post::create($post);
+       return back();
     }
 }
