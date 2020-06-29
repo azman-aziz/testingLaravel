@@ -20,6 +20,7 @@
 
 	{{-- yield di gunakan untuk mengirim dan di terima oleh section --}}
 	<div class="py-4">
+		@include('posts.alert')
 		@yield('oke')	
 	</div>
 	

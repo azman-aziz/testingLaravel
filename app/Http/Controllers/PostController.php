@@ -41,6 +41,10 @@ class PostController extends Controller
 
        //create new post
        Post::create($attr);
-       return back();
+
+
+       session()->flash('success', 'succes input into database');
+       // session()->flash('error', 'error input into database');
+       return redirect('/posts');
     }
 }

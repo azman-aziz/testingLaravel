@@ -4,6 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
+				@include('posts.alert')
 				<div class="card">
 					<div class="card-header">New Card</div>
 					<div class="card-body">
