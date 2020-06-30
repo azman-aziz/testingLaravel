@@ -31,9 +31,10 @@
 							    <p class="card-text">{{Str::limit($menu->body,100, '')}}</p>
 							    <a href="/posts/{{$menu->slug}}" class="btn btn-primary">Read More</a>
 							  </div>
-							  <div class="card-footer">
+							  <div class="card-footer d-flex justify-content-between">
 							  	{{-- difForHumans = untuk menampilkan data terakhir --}}
 							  	Publised at {{$menu->created_at->format('d F, Y')}}
+							  	<a href="/posts/{{$menu->slug}}/edit" class="btn btn-success">Edit</a>
 							  </div>
 							</div>
 						</div>

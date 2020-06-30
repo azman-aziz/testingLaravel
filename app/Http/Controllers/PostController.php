@@ -47,4 +47,27 @@ class PostController extends Controller
        // session()->flash('error', 'error input into database');
        return redirect('/posts');
     }
+
+
+    public function edit(Post $post){
+       return view('posts.edit', compact('post'));
+    }
+
+
+    public function update(Post $post){
+
+        
+
+       $attr = request()->validate([
+
+            'title' => 'required|min:3',
+            'body' => 'required',
+        ]);
+
+       $post->update($attr);
+        session()->flash('success', 'succes Updated');
+       // session()->flash('error', 'error input into database');
+       return redirect('/posts');
+
+    }
 }
