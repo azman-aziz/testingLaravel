@@ -11,9 +11,9 @@ class PostController extends Controller
     public function index(){
     	//take() : untuk membatasi data yang tampil
     	//paginate() = membuat pagination
-    	$Post = Post::paginate(5);
+    	$Post = Post::paginate(6);
     	return view('posts.index', [
-    		'Post' => Post::latest()->paginate(5),
+    		'Post' => Post::latest()->paginate(6),
     	]) ;
     }
 
@@ -57,6 +57,14 @@ class PostController extends Controller
        // session()->flash('error', 'error input into database');
        return redirect('/posts');
 
+    }
+
+
+    public function destroy(Post $post){
+       $post->delete();
+        
+       session()->flash('success', 'Deleted this posts');
+       return redirect('posts');
     }
 
     
