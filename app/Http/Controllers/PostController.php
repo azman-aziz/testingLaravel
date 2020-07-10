@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+//bisa di gunakan semisal letak tag name nya sama
+use App\{Post,Category,Tag};
+
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 
@@ -22,17 +24,24 @@ class PostController extends Controller
     }
 
     public function create(){
-        return view('posts.create', ['post' => new Post()]);
+        return view('posts.create', [
+          'post' => new Post(),
+          'categories' => Category::get(),
+          'tags' => Tag::get(),
+        ]);
     }
 
-    public function store(PostRequest $request){
 
+    public function store(PostRequest $request){
 
       $attr = $request->all();
       
        $attr['slug'] = \Str::slug(request('title'));
+       $attr['category_id'] = request('category');
        //create new post
-       Post::create($attr);
+       $post = Post::create($attr);
+
+       $post->tags()->attach(request('tags'));
 
 
        session()->flash('success', 'succes input into database');
@@ -42,17 +51,22 @@ class PostController extends Controller
 
 
     public function edit(Post $post){
-       return view('posts.edit', compact('post'));
+       return view('posts.edit', [
+          'post' => $post,
+          'categories' => Category::get(),
+          'tags' => Tag::get(),
+       ]);
     }
 
 
     public function update(Request $request, Post $post){
 
       $attr = $request->all();
-
-            
+      $attr['category_id'] = request('category');            
 
        $post->update($attr);
+       $post->tags()->sync(request('tags'));
+
         session()->flash('success', 'succes Updated');
        // session()->flash('error', 'error input into database');
        return redirect('/posts');
@@ -61,8 +75,10 @@ class PostController extends Controller
 
 
     public function destroy(Post $post){
-       $post->delete();
-        
+
+      $post->tags()->detach();
+      $post->delete();
+     
        session()->flash('success', 'Deleted this posts');
        return redirect('posts');
     }

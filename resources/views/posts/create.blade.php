@@ -11,6 +11,7 @@
 
 						<form action="/posts/store" method="post">
 							@csrf
+							
 							@include('posts.particial.form-control', ['submit' => 'Create'])
 							
 						</form>

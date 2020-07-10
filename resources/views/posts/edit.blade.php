@@ -10,7 +10,8 @@
 					<div class="card-body">
 
 						<form action="/posts/{{$post->slug}}/edit" method="post">
-
+						@csrf
+						@method('patch')
 						@include('posts.particial.form-control')
 						</form>
 

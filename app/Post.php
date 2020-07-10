@@ -12,7 +12,7 @@ class Post extends Model
 
     //fillelable di gunakan untuk menentukan input yang boleh masuk ke database
     // $guarded = semua input di izinkan masuk tanpa terkecuali
-    protected $fillable = ['title', 'slug', 'body'];
+    protected $fillable = ['title', 'slug', 'body', 'category_id'];
 
     public function category(){
     	return $this->belongsTo(Category::class);
